@@ -14,4 +14,11 @@ public function __construct($nombre, $vida, $fuerza, $defensa){
    
 }
 
+
+
+
+
+
+
+
 }
