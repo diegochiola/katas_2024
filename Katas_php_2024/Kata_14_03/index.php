@@ -1,4 +1,5 @@
 <?php
+require_once('SalvarTren.php');
 //pedir por pantalla
 
 do{
