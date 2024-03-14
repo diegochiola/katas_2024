@@ -6,16 +6,18 @@ private int $vida;
 private int $fuerza;
 private int $defensa;
 
-public function __construct($nombre, $vida, $fuerza, $defensa){
+public function __construct($nombre, $fuerza, $defensa){
     $this->nombre=$nombre;
-    $this->vida =$vida;
+    $this->vida =10;
     $this->fuerza= $fuerza;
     $this->defensa = $defensa;
    
 }
 
 
+//getter
 
+//setter
 
 
 
