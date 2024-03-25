@@ -36,6 +36,9 @@ switch($opcion){
 
 //comparacion con el numero
 
+//para el segundo: no muestra suma parcial
+
+
 
 
 
