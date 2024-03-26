@@ -6,8 +6,9 @@
 //logica con booleano. true o false
 $numeroUsuario = 153;
 
+//version de validacion: que sea numero, que sea positivo
 function esAmstrong($numeroUsuario){
-    if ($numeroUsuario != 0){
+    if ($numeroUsuario > 0 && is_numeric($numeroUsuario) && floor($numeroUsuario) == $numeroUsuario) {      //($numeroUsuario != 0){
         //1ero necesito convertir a un array, el numero inglesado. (separar el numero en digitos)
         $arrayDigitos = str_split($numeroUsuario);
         //2do contar los digitos (elementos que hay en el array)
@@ -23,10 +24,22 @@ function esAmstrong($numeroUsuario){
         }
         //ultima verificacion o no amstrong (booleano)
         return $comprobacion == $numeroUsuario ? true : false;
+    }else{
+        return false; //si no cumple
     }
 }
+//corregir mensaje a partir de la validacion
 function mensaje($numeroUsuario, $esAmstrong){ //mostrar mensaje por operador ternario true o false
-    echo $esAmstrong ? "El número $numeroUsuario es un número de Armstrong!" : "El número $numeroUsuario no es un número de Armstrong." . PHP_EOL;
+    //echo $esAmstrong ? "El número $numeroUsuario es un número de Armstrong!" : "El número $numeroUsuario no es un número de Armstrong." . PHP_EOL;
+    if(is_numeric($numeroUsuario)){
+        if($esAmstrong){
+           echo "El número $numeroUsuario es un número de Armstrong!" . PHP_EOL;
+        }else{
+            echo "El número $numeroUsuario no es un número de Armstrong." . PHP_EOL;
+        }
+    }else{
+        echo "Por favor, ingrese un número entero positivo." . PHP_EOL; 
+    }
 }
 
 //ingresar el numero por temrinal:
@@ -40,6 +53,7 @@ switch($opcion){
         //ingresar el numero
         $numeroUsuario= readline("Ingrese un numero: ");
         mensaje($numeroUsuario, esAmstrong($numeroUsuario));
+    
         break;
     case 0:
         echo "Ha decidido salir del programa".PHP_EOL;
