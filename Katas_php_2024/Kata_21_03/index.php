@@ -4,7 +4,7 @@
 
 //se  lo comparara con numeros de amstrong en base a su logica
 //logica con booleano. true o false
-$numeroUsuario = 153;
+//$numeroUsuario = 153;
 
 //version de validacion: que sea numero, que sea positivo
 function esAmstrong($numeroUsuario){
@@ -51,7 +51,16 @@ do{
 switch($opcion){
     case 1: 
         //ingresar el numero
-        $numeroUsuario= readline("Ingrese un numero: ");
+        //$numeroUsuario= readline("Ingrese un numero: ");
+        $numeroUsuario= "";
+        while (!is_numeric($numeroUsuario)) {
+            $numeroUsuario = readline("Ingrese un numero: ");
+            // Verificar si el número es numérico
+            if (!is_numeric($numeroUsuario)) {
+                echo "Por favor, ingrese un número válido." . PHP_EOL;
+                continue;
+            }
+        }
         mensaje($numeroUsuario, esAmstrong($numeroUsuario));
     
         break;
