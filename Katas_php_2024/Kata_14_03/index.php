@@ -36,18 +36,18 @@ do{
     switch($opcion){
         case 1:
             // Freno 1
-            if (!$freno1) {
+                
+                echo "El objetivo es: " . $numeroObjetivo1 . "\n";
                 $numerosIngresados = ingresarNumeros(10);
                 $freno1 = sumarDigitos($numerosIngresados, $numeroObjetivo1);
                 echo $freno1 ? "Felicitaciones! Has frenado el primer freno del tren!\n" : "Has fallado!\n";
-                // Si el primer freno tuvo éxito, habilitar intentos para el segundo freno
-            // Freno 2 (Solo si el freno 1 fue exitoso)
-            } elseif (!$freno2) {
-                echo "El objetivo es: " . $numeroObjetivo2 . "\n";
-                $numerosIngresados = ingresarNumeros(10);
-                $freno2 = sumarDigitos($numerosIngresados, $numeroObjetivo2);
-                echo $freno2 ? "Felicitaciones! Has salvado el tren!\n" : "Has fallado!\n";
-            }
+                
+                if($freno1 && !$freno2){
+                    echo "El objetivo es: " . $numeroObjetivo2 . "\n";
+                    $numerosIngresados = ingresarNumeros(10);
+                    $freno2 = sumarDigitos($numerosIngresados, $numeroObjetivo2);
+                    echo $freno2 ? "Felicitaciones! Has salvado el tren!\n" : "Has fallado!\n";  
+                }
         
             /*
             $numerosIngresados = [];
