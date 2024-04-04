@@ -1,6 +1,6 @@
 <?php
 require_once('SalvarTren.php');
-//pedir por pantalla
+$freno1= false;
 
 do{
     $opcion = readline("Bienvenido a aplicacion rescata el tren.". "\n".
@@ -12,20 +12,7 @@ do{
         case 1: 
             //pensar en un array de numeros mas facil de 10 posiciones
             $numerosIngresados = [];
-            /*
-            $numero1= readline("Ingrese un numero: ");
-            $numero2= readline("Ingrese un numero: ");
-            $numero3= readline("Ingrese un numero: ");
-            $numero4= readline("Ingrese un numero: ");
-            $numero5= readline("Ingrese un numero: ");
-            $numero6= readline("Ingrese un numero: ");
-            $numero7= readline("Ingrese un numero: ");
-            $numero9= readline("Ingrese un numero: ");
-            $numero9= readline("Ingrese un numero: ");
-            $numero10= readline("Ingrese un numero: ");
-            $numerosIngresados= array($numero1,$numero2,$numero3,$numero4,$numero5, $numero6, $numero7, $numero8, $numero9, $numero10);
-            */
-            //recorrro array
+            //pedir numero por terminal
             $contador=10;
             for ($i = 1; $i <= $contador; $i++) {
                 $numero = readline("Ingrese el número " . $i . ": ");
@@ -40,14 +27,7 @@ do{
                 $numeroObjetivo = 67;
                 $tren = new SalvarTren();
                 $tren->sumarDigitos($numerosIngresados, $numeroObjetivo);
-                //suma parcial de numero ingresados
-                
-            //freno2
-            } elseif ($opcion == 2) {
-                $numeroObjetivo = 87; // Cambiar el objetivo para el segundo caso
-                $tren = new SalvarTren();
-                $tren->sumarDigitos($numerosIngresados, $numeroObjetivo);
-                //no tiene suma parcial porque esta rota la pantalla
+                $freno1 = true;  
             }
             break;
         case 0:
@@ -56,12 +36,12 @@ do{
         default:
             echo "Opcion no valida, vuelva a intentarlo". "\n";           
     }
+    //en caso de haber realizado el freno 1
+    if($freno1){
+        $numeroObjetivo = 87; 
+        $tren2 = new SalvarTren();
+        $tren2->sumarDigitos($numerosIngresados, $numeroObjetivo);
+    }
 }while ($opcion!=0);
 
-
-
-
-
-
-
-
+?>
