@@ -16,7 +16,15 @@ function sumarDigitos($numerosIngresados, $numeroObjetivo){
 function ingresarNumeros($contador, $mostrarSumaParcial = true) {
     $numerosIngresados = [];
     for ($i = 1; $i <= $contador; $i++) {
-        $numero = readline("Ingrese el número " . $i . ": ");
+        //$numero = readline("Ingrese el número " . $i . ": ");
+        //validacion de digitos ingresados:
+        $numero = 0;
+        while ($numero <= 0) {
+            $numero = (int)readline("Ingrese el número " . $i . ": ");
+            if ($numero <= 0) {
+                echo "Debe ingresar un número positivo mayor a 0. Intenta de nuevo.\n";
+            }
+        }
         $numerosIngresados[] = $numero;
         echo "Tu contador está en: " . $i . "\n";
         if($mostrarSumaParcial){
