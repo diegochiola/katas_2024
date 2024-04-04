@@ -2,6 +2,7 @@
 require_once('SalvarTren.php');
 $freno1= false;
 
+
 do{
     $opcion = readline("Bienvenido a aplicacion rescata el tren.". "\n".
                     "Digite una opcion: ". "\n".
@@ -14,6 +15,8 @@ do{
             $numerosIngresados = [];
             //pedir numero por terminal
             $contador=10;
+            $numeroObjetivo = 67;
+            echo "El objetivo es: " . $numeroObjetivo . "\n";
             for ($i = 1; $i <= $contador; $i++) {
                 $numero = readline("Ingrese el número " . $i . ": ");
                 $numerosIngresados[] = $numero;
@@ -24,10 +27,9 @@ do{
             }
             //freno 1
             if ($opcion == 1) {
-                $numeroObjetivo = 67;
                 $tren = new SalvarTren();
-                $tren->sumarDigitos($numerosIngresados, $numeroObjetivo);
-                $freno1 = true;  
+                $freno1= $tren->sumarDigitos($numerosIngresados, $numeroObjetivo);
+                echo $freno1 ? "Felicitaciones! Has frenado el primer freno del tren!\n" : "Has fallado!\n";
             }
             break;
         case 0:
@@ -36,11 +38,19 @@ do{
         default:
             echo "Opcion no valida, vuelva a intentarlo". "\n";           
     }
-    //en caso de haber realizado el freno 1
+    //freno 2
     if($freno1){
-        $numeroObjetivo = 87; 
-        $tren2 = new SalvarTren();
-        $tren2->sumarDigitos($numerosIngresados, $numeroObjetivo);
+        $numerosIngresados = [];
+        $contador = 10;
+        $numeroObjetivo = 87;
+        echo "El objetivo es: " . $numeroObjetivo . "\n";
+        for ($i = 1; $i <= $contador; $i++) {
+            $numero = readline("Ingrese el número " . $i . ": ");
+            $numerosIngresados[] = $numero;
+        }
+        $tren = new SalvarTren();
+        $freno2 = $tren->sumarDigitos($numerosIngresados, $numeroObjetivo);
+        echo $freno2 ? "Felicitaciones! Has salvado el tren!\n" : "Has fallado!\n";
     }
 }while ($opcion!=0);
 
