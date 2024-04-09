@@ -36,9 +36,9 @@ public function atacar() {
     return rand(1, $this->fuerza);
 }
 
-public function recibirGolpe($danio) {
-    $danio -= $this->defensa;
-    $this->vida -= ($danio <= 0) ? 1 : $danio;
+public function recibirGolpe($perjuicio) {
+    $perjuicio -= $this->defensa;
+    $this->vida -= ($perjuicio <= 0) ? 1 : $perjuicio;
 }
 
 public function estaVivo() {
