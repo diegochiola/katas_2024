@@ -27,7 +27,8 @@ class Enfrentamiento
             echo "Ronda: ".$ronda . PHP_EOL;
             //$ronda++;
             //orden
-            if($this->luchador1->getFuerza() >= $this->luchador2->getFuerza()){
+            $probabilidad_luchador1 = $this->probabilidadDeGolpe($this->luchador1->getFuerza(), $this->luchador2->getFuerza());
+            if (mt_rand(0, 100) / 100 < $probabilidad_luchador1) { //intentar hacer aleatorio quien ataca
                 $atacante = $this->luchador1;
                 $defensor = $this->luchador2;
             }else{
