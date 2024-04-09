@@ -1,5 +1,6 @@
 <?php
-require_once 'luchador.php';
+require_once 'Luchador.php';
+require_once 'Enfrentamiento.php';
 
 //instancio luchador $nombre, $vida, $fuerza, $defensa
 

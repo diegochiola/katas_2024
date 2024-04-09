@@ -1,10 +1,10 @@
 <?php
 
 class Luchador{
-private string $nombre;
-private int $vida;
-private int $fuerza;
-private int $defensa;
+public $nombre;
+public $vida;
+public $fuerza;
+public $defensa;
 
 public function __construct($nombre, $fuerza, $defensa){
     $this->nombre=$nombre;
@@ -16,11 +16,38 @@ public function __construct($nombre, $fuerza, $defensa){
 
 
 //getter
+public function getName(){
+    return $this->nombre;
+}
+public function getVida(){
+    return $this->vida;
+}
+public function getFuerza(){
+    return $this->fuerza;
+}
+public function getDefensa(){
+    return $this->defensa;
+}
 
 //setter
 
+//funciones
+public function atacar() {
+    return rand(1, $this->fuerza);
+}
+
+public function recibirGolpe($danio) {
+    $danio -= $this->defensa;
+    $this->vida -= ($danio <= 0) ? 1 : $danio;
+}
+
+public function estaVivo() {
+    return $this->vida > 0;
+}
 
 
-
+public function __toString(){
+    return "Luchador llamado: ".$this->nombre . PHP_EOL . "Vida: " . $this->vida . PHP_EOL . "Fuerza: " . $this->fuerza . PHP_EOL . "Defensa: " . $this->defensa . PHP_EOL;
+}
 
 }
